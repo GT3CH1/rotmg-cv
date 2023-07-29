@@ -3,6 +3,8 @@ import pathlib
 import numpy as np
 ss = cv2.imread("/Users/gcpease/Downloads/image.png")
 
+CONFIDENCE = 0.9
+
 width_scale = 0.6
 height_scale = 0.2
 
@@ -25,7 +27,7 @@ found_items = []
 for _item in items:
     item = cv2.imread(str(_item))
     res = cv2.matchTemplate(ss_cropped, item, eval(method))
-    loc = np.where(res >= 0.70)
+    loc = np.where(res >= CONFIDENCE)
     if not np.any(loc):
         continue
     (minVal, maxVal, minLoc, maxLoc) = cv2.minMaxLoc(res)
