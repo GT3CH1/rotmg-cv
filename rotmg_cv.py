@@ -1,7 +1,7 @@
 import cv2
 import pathlib
 import numpy as np
-from const import CV2_METHOD, CONFIDENCE
+from .const import CV2_METHOD, CONFIDENCE
 
 ROTMG_CV_PATH = pathlib.Path(__file__).parent.absolute()
 
